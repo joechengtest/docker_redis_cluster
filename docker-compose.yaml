@@ -1,0 +1,21 @@
+version: '3'
+services:
+  redis_cluster:
+    build: .
+    image: joechengtest/redis-cluster:1.0
+    container_name: redis_cluster
+    ports:
+    - 7000-7005:7000-7005
+    volumes:
+    - /data/redis/:/data/
+    - /etc/hosts:/etc/hosts
+    privileged: true
+    
+#    command:
+#    - /bin/sh
+#    - -c
+#    - |
+#        echo "32867" > /proc/sys/net/core/somaxconn
+#        echo "never" > /sys/kernel/mm/transparent_hugepage/enabled
+#        echo "never" > /sys/kernel/mm/transparent_hugepage/defrag
+#    - redis-cluster
